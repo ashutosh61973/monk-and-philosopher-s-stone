@@ -1,0 +1,48 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<string>
+#include<stack>
+using namespace std;
+
+int  main(){
+stack<int>b;
+vector<int>w;
+int n;
+cin>>n;
+for(int i=0;i<n;i++)
+{
+	int coin_worth;
+	cin>>coin_worth;
+ w.push_back(coin_worth); 
+}
+int q;
+int x;
+cin>>q;
+cin>>x;
+int i=0;
+while(q!=0){
+	string instr="";
+	cin>>instr;
+	if(instr.compare("Harry")==0)
+	{
+		b.push(w[i]);
+		i++;
+	}
+	if(instr.compare("Remove")==0)
+	b.pop();
+	q--;
+}
+int sum=0;
+int number_of_coin=b.size();
+for(int i=0;i<number_of_coin;i++)
+{
+	sum=sum+b.top();
+	b.pop();
+	
+}
+if(sum==x)
+cout<<number_of_coin;
+else
+cout<<-1;
+}
